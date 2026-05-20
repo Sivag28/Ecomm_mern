@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+body {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 25%, #fce7f3 50%, #f3e8ff 75%, #fef3c7 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 219, 226, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 60% 10%, rgba(168, 85, 247, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 10% 60%, rgba(34, 197, 94, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 90% 90%, rgba(251, 146, 60, 0.3) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.wavy-bg {
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 15px,
+      rgba(59, 130, 246, 0.15) 15px,
+      rgba(59, 130, 246, 0.15) 30px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 20px,
+      rgba(168, 85, 247, 0.12) 20px,
+      rgba(168, 85, 247, 0.12) 40px
+    );
+  animation: dualWave 25s linear infinite;
+}
+
+@keyframes dualWave {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 120px 120px, -80px -80px;
+  }
+}
+
+.wavy-border {
+  position: relative;
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+}
+
+.wavy-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+  border-radius: 17px;
+  z-index: -1;
+  animation: borderWave 8s ease-in-out infinite;
+}
+
+@keyframes borderWave {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
